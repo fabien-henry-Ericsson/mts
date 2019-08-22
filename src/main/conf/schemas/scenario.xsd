@@ -64,6 +64,12 @@
         <!ENTITY type_operations_25 SYSTEM "include/type_operations_h225cs.xsd">
         <!ENTITY list_26 SYSTEM "include/list_ethernet.xsd">
         <!ENTITY type_operations_26 SYSTEM "include/type_operations_ethernet.xsd">
+        <!ENTITY list_27 SYSTEM "include/list_http2.xsd">
+        <!ENTITY type_operations_27 SYSTEM "include/type_operations_http2.xsd">
+        <!ENTITY list_28 SYSTEM "include/list_s1ap.xsd">
+        <!ENTITY type_operations_28 SYSTEM "include/type_operations_s1ap.xsd">
+        <!ENTITY list_29 SYSTEM "include/list_ngap.xsd">
+        <!ENTITY type_operations_29 SYSTEM "include/type_operations_ngap.xsd">
         ]>
 
 
@@ -113,6 +119,9 @@
                             &list_24;
                             &list_25;
                             &list_26;
+                            &list_27;
+                            &list_28;
+                            &list_29;
                         </xs:sequence>
                     </xs:extension>
                 </xs:complexContent>
@@ -145,5 +154,8 @@
             &type_operations_24;
             &type_operations_25;
             &type_operations_26;
+            &type_operations_27;
+            &type_operations_28;
+            &type_operations_29;
         </xs:schema>
 

@@ -27,15 +27,14 @@ import java.io.*;
 import java.net.*;
 import org.apache.hc.core5.http.ConnectionReuseStrategy;
 import org.apache.hc.core5.http.HttpEntity;
+import org.apache.hc.core5.http.config.Http1Config;
 import org.apache.hc.core5.http.io.entity.StringEntity;
 import org.apache.hc.core5.http.HttpHost;
 import org.apache.hc.core5.http.HttpResponse;
 import org.apache.hc.core5.http.HttpResponseInterceptor;
 import org.apache.hc.core5.http.impl.io.DefaultClassicHttpResponseFactory;
-import org.apache.hc.core5.http.config.H1Config;
 import org.apache.hc.core5.http.HttpRequest;
 import org.apache.hc.core5.http.HttpRequestInterceptor;
-import org.apache.hc.core5.http.HttpRequestMapper;
 import org.apache.hc.core5.http.impl.DefaultConnectionReuseStrategy;
 import org.apache.hc.core5.http.impl.io.DefaultBHttpClientConnection;
 import org.apache.hc.core5.http.ClassicHttpRequest;
@@ -60,6 +59,7 @@ import org.apache.hc.core5.http.protocol.RequestTargetHost;
 import org.apache.hc.core5.http.protocol.RequestUserAgent;
 import org.apache.hc.core5.http.protocol.ResponseDate;
 import org.apache.hc.core5.http.protocol.ResponseServer;
+import org.apache.hc.core5.io.CloseMode;
 import org.apache.hc.core5.http.protocol.ResponseContent;
 import org.apache.hc.core5.http.protocol.ResponseConnControl;
 
@@ -68,7 +68,7 @@ public class HttpLoaderServer extends Thread
 {
 	
 	
-	private H1Config h1c;
+	private Http1Config h1c;
     private  HttpContext context = new BasicHttpContext(null);
     private  DefaultBHttpClientConnection Clientconn = new DefaultBHttpClientConnection(h1c);
     private DefaultBHttpServerConnection Serverconn = new DefaultBHttpServerConnection("H1Config",h1c);
@@ -81,7 +81,7 @@ public class HttpLoaderServer extends Thread
     {
         this.port=port;
         this.hostname=hostname;
-        this.h1c= H1Config.custom()
+        this.h1c= Http1Config.custom()
     			.build();
         try
         {
@@ -280,7 +280,7 @@ public class HttpLoaderServer extends Thread
             }
             finally
             {
-                this.conn.shutdown(null);
+                this.conn.close(CloseMode.GRACEFUL);
             }
         }
         

@@ -9,12 +9,15 @@
     <url>http://mts.arm-tool.com</url>
 
     <properties>
+        <antlr4.version>4.7.2</antlr4.version>
         <project.build.sourceEncoding>ISO-8859-15</project.build.sourceEncoding>
 
         <target.mts.dir>${project.build.directory}/mts</target.mts.dir>
 
         <target.izpack.dir>${project.build.directory}/izpack</target.izpack.dir>
         <izpack.version>4.3.5</izpack.version>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
 
         <!--
         <sonar.host.url>defined in ~/.m2/settings.xml</sonar.host.url>
@@ -354,12 +357,12 @@
         <dependency>
       		<groupId>org.apache.httpcomponents.core5</groupId>
       		<artifactId>httpcore5</artifactId>
-      		<version>5.0-beta2</version>
+      		<version>5.0-beta8</version>
     	</dependency>
         <dependency>
       		<groupId>org.apache.httpcomponents.core5</groupId>
       		<artifactId>httpcore5-h2</artifactId>
-      		<version>5.0-beta2</version>
+      		<version>5.0-beta8</version>
     	</dependency>
         <dependency>
             <groupId>log4j</groupId>
@@ -540,6 +543,13 @@
             <version>0.7</version>
             <scope>system</scope> 
             <systemPath>${basedir}/lib/jpcap.jar</systemPath>   
+        </dependency>
+        <dependency>
+            <groupId>mts-asn1-per</groupId>
+            <artifactId>mts-asn1-per</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/mts-asn1-per-1.0-SNAPSHOT-jar-with-dependencies.jar</systemPath>
         </dependency>
     </dependencies>
 </project>

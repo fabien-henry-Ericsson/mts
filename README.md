@@ -1,4 +1,4 @@
-# MTS: Multiprotocol Test Tool ![build status](https://travis-ci.org/ericsson-mts/mts.svg?branch=master)
+# MTS: Multiprotocol Test Tool![build status](https://travis-ci.org/ericsson-mts/mts.svg?branch=master)
 
 MTS (Multi-protocol Test Suite) is a multi-protocol testing tool specially designed for telecom IP-based architectures (see above "Features" section for more details).
 
